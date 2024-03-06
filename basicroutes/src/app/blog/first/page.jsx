@@ -1,4 +1,7 @@
 
+export const metadata={
+  title:"first blog"
+}
 const First = () => {
   return (
     <div>
