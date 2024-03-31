@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 import { comments } from "../data";
+import { redirect } from "next/navigation";
 
 export async function GET(request: Request, content: any) {
     const singleComment = comments.filter((item) => item.id == content.params.id)
-    return new Response(JSON.stringify(singleComment.length == 0 ? {result:"no data found",success:false}:{request:singleComment,success:true}));
+    if(content.params.id > comments.length){
+        redirect('/comments')
+    }else{
+        return new Response(JSON.stringify(singleComment.length == 0 ? {result:"no data found",success:false}:{request:singleComment,success:true}));
+    }
 }
 
 export async function PATCH(request:Request,context:any){

@@ -9,8 +9,5 @@ export const comments = [
     },{
         id:3,
         text:"this is third comment"
-    },{
-        id:4,
-        text:"this is forth comment"
     },
 ]
